@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteRule ^(src|vendor|composer|data) - [F]
+RewriteRule .* - [env=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ /herding/kn_api/public/index.php [QSA,NC,L]
+
+
+
+
+
+
