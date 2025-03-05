@@ -1,0 +1,121 @@
+.leaflet-control-layers {
+    /* .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar { */
+    border-radius: 2px 25px 2px 9px;
+}
+
+.leaflet-control-layers-base.row {
+    font-size: medium;
+    justify-content: center;
+    height: 35px;
+}
+
+.leaflet-control-layers-base.row input {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+}
+
+.leaflet-control-layers-base.row>label {
+    position: relative;
+    width: 180px;
+}
+
+.leaflet-control-layers-base.row>label span {
+    position: absolute;
+    top: 3px;
+    left: 48px;
+}
+
+.leaflet-control-layers-group>label>span div {
+    padding: 0px !important;
+}
+
+input#opacityRange {
+    width: 180px;
+    height: 3px;
+}
+
+.leaflet-control-layers-group>label>span h6 {
+    font-size: 12px;
+    text-align: -webkit-center;
+}
+
+span.badge.badge-danger {
+    width: 22px;
+    padding: 2px 6px 2px 2px!important;
+}
+
+a.leaflet-control-zoom-in {
+    width: unset !important;
+    height: unset !important;
+    padding: 10px !important;
+    font-size: 2.75em !important;
+    border-top-right-radius: 25px !important;
+}
+
+a.leaflet-control-zoom-out {
+    width: unset !important;
+    height: unset !important;
+    padding: 10px !important;
+    font-size: 20px !important;
+    border-bottom-left-radius: 9px !important;
+}
+
+.leaflet-top {
+    /* .leaflet-top .leaflet-control { */
+    margin-top: 0px !important;
+    /* border: 2px solid rgba(0, 0, 0, 0.2); */
+}
+
+.leaflet-top.leaflet-left {
+    top: unset !important;
+    bottom: 60px;
+}
+
+.leaflet-popup-content-fb {
+    margin-bottom: 7px;
+}
+
+#arb {
+    font-size: 36px;
+    /*border-right: 1px solid snow;*/
+    /*padding-right: 7px;*/
+    cursor: pointer;
+}
+
+#en {
+    font-size: 36px;
+    border-right: 1px solid snow;
+    /*padding-right: 7px;*/
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+}
+
+#heb {
+    font-family: 'myHebrewFont';
+    font-size: 40px;
+    padding-left: 5px;
+}
+
+.tooltipster-base .tooltipster-content {
+    overflow-y: auto !important;
+    overflow: auto !important;
+    padding: 0px !important;
+    margin: 5px !important;
+}
+
+.tooltipster-base .tooltipster-content::-webkit-scrollbar {
+    width: 3px;
+}
+
+.leaflet-bottom.leaflet-right {
+    bottom: 10px;
+}
+
+@media screen and (max-width: 750px) {
+    span.badge.badge-danger {
+        padding: 0px 10px 0px 2px !important;
+        font-size: 12px;
+    }
+}

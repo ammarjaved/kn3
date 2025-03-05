@@ -1,0 +1,208 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "Alef";
+    src: url("../../assets/fonts/Alef-Regular.ttf") format("truetype");
+    /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
+.leftside-tooltip {
+    left: 0 !important;
+    height: 463px !important;
+    position: fixed;
+    top: 27vh !important;
+    bottom: 0 !important;
+    width: 390px !important;
+    color: #cc9c6f !important;
+    -webkit-transform: translate(0, -50%) !important;
+    transform: translate(0, -50%) !important;
+    top: 50% !important;
+    padding: 1.5% !important;
+    border-radius: 0;
+    background: white !important;
+    border-top-right-radius: 9px !important;
+    border-bottom-right-radius: 9px !important;
+    border: 2px solid #cc9c6f !important;
+}
+
+.leftside-tooltip .close,
+.leftside-tooltip .close2,
+.leftside-tooltip .close3,
+.leftside-tooltip .close4,
+.leftside-tooltip .close5,
+.leftside-tooltip .close6,
+.leftside-tooltip .close7,
+.leftside-tooltip .close8,
+.leftside-tooltip .close9,
+.leftside-tooltip .close10 {
+    width: 19px;
+    height: 35px;
+    background: #fff;
+    position: fixed !important;
+    top: 23px !important;
+    right: 8.5% !important;
+    background: url("../NewPNG/Group 384.png") no-repeat 0 0 !important;
+    cursor: pointer;
+}
+
+.leftside-tooltip .tooltipster-content {
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    margin: auto !important;
+    font-family: Alef !important;
+    font-size: 18px !important;
+    overflow: scroll !important;
+    max-height: 80%;
+    position: absolute;
+    width: 80% !important;
+    line-height: 23px !important;
+    display: inline-grid;
+    top: 32px;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    margin-top: 2em !important;
+    margin-bottom: 1.8em !important;
+}
+
+.tooltipster-arrow-top.tooltipster-arrow {
+    display: none !important;
+}
+
+html {
+    overflow: scroll !important;
+    overflow-x: hidden !important;
+    scrollbar-width: none !important;
+}
+
+::-webkit-scrollbar {
+    width: 0px !important;
+    /* Remove scrollbar space */
+    background: transparent !important;
+    /* Optional: just make scrollbar invisible */
+}
+
+
+/* Optional: show position indicator in red */
+
+::-webkit-scrollbar-thumb {
+    background: transparent !important;
+}
+
+.tooltipster-arrow {
+    display: none !important;
+}
+
+@-moz-document url-prefix() {
+    .tooltipster-content {
+        overflow: auto;
+        -ms-overflow-style: none;
+        /* IE 11 */
+        scrollbar-width: none !important;
+    }
+    .rightside-tooltip {
+        transform: translate(0, -50%) !important;
+        right: 0 !important;
+        /* Firefox 64 */
+    }
+}
+
+.rightside-tooltip {
+    left: auto !important;
+    right: 0 !important;
+    height: 463px !important;
+    position: fixed;
+    top: 27vh !important;
+    bottom: 0 !important;
+    width: 390px !important;
+    color: #cc9c6f !important;
+    -webkit-transform: translate(0%, -50%) !important;
+    transform: translate(0%, -50%) !important;
+    top: 50% !important;
+    padding: 1.5% !important;
+    border-radius: 0;
+    background: white !important;
+    border-top-left-radius: 9px !important;
+    border-bottom-left-radius: 9px !important;
+    border: 2px solid #cc9c6f !important;
+}
+
+.rightside-tooltip .close,
+.rightside-tooltip .close2,
+.rightside-tooltip .close3,
+.rightside-tooltip .close4,
+.rightside-tooltip .close5,
+.rightside-tooltip .close6,
+.rightside-tooltip .close7,
+.rightside-tooltip .close8,
+.rightside-tooltip .close9,
+.rightside-tooltip .close10 {
+    width: 20px;
+    height: 36px;
+    background: #fff;
+    position: fixed !important;
+    top: 23px !important;
+    right: 26px;
+    left: 8.5% !important;
+    background: url("../NewPNG/Group 384.png") no-repeat 0 0 !important;
+    cursor: pointer;
+    opacity: 1 !important;
+}
+
+.rightside-tooltip .tooltipster-content {
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    margin: auto !important;
+    font-size: 18px !important;
+    overflow: scroll !important;
+    max-height: 80%;
+    position: absolute;
+    width: 80% !important;
+    line-height: 23px !important;
+    display: inline-grid;
+    top: 32px;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    margin-top: 2em !important;
+    margin-bottom: 1.8em !important;
+}
+
+.en-tooltipster-content {
+    font-family: Trebuchet MS !important;
+}
+
+.heb-tooltipster-content,
+.arb-tooltipster-content {
+    font-family: Alef !important;
+}
+
+#sidebar-container-layers {
+    padding: 1em;
+}
+
+
+/*# sourceMappingURL=sidebarCard.css.map */
+
+@media screen and (max-width: 750px) {
+    .leftside-tooltip,
+    .rightside-tooltip {
+        width: 200px !important;
+        height: 230px !important;
+        margin-top: -15% !important;
+    }
+    .leftside-tooltip .tooltipster-content,
+    .rightside-tooltip .tooltipster-content {
+        width: 90% !important;
+        margin: auto !important;
+        font-size: 15px !important;
+    }
+    .leftside-tooltip .tooltipster-content>span,
+    .rightside-tooltip .tooltipster-content>span {
+        width: 15px;
+        height: 20px;
+        top: 10px !important;
+        right: 4% !important;
+    }
+}

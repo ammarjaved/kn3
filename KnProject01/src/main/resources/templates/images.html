@@ -1,0 +1,44 @@
+ 
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeria Imagenes</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
+    
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+   
+   <form action="">
+       
+       <h3>Seleccionar Imagen</h3>
+       <input id="title" type="text" placeholder="Titulo" class="title-image">
+       <img th:src="@{/images/img2.jpg}" class="image-select">
+       <input type="button" value="Cargar Imagen" class="load-image">
+       <input id="arch" type="file" class="seleted">
+       <input type="button" value="Cargar" class="upload">
+       
+   </form>
+   
+   <div class="shape"></div>
+   
+    <div class="container-gallery">
+       <h2>Galeria Pruebas</h2>
+       <input type="button" value="Mas recientes" class="btn-recient">
+        <div class="gallery">
+            <figure th:each="img : ${imgs}" >
+                <h1 th:text="${img.getTitle()}"></h1>
+                <img th:src="${img.getLink()}" >
+            </figure>
+        </div>
+    </div>
+    
+    <i class="fas fa-plus btn-show"></i>
+    
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

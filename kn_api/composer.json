@@ -1,0 +1,15 @@
+{
+    "name": "slim4geonames/slim4geonames",
+    "description": "Slim Framework 4 Geonames",
+    "require": {
+        "slim/slim": "4.*",
+        "slim/http": "^1.0",
+        "slim/psr7": "^1.0",
+        "vlucas/phpdotenv": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "slim4geonames\\": "src/"
+        }
+    }
+}
