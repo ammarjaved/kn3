@@ -909,21 +909,22 @@ a.leaflet-control-zoom-in, a.leaflet-control-zoom-out.leaflet-disabled {
     background-color: #b7b3b3;
     border-radius: 50%;
     top: 5px;
-    left: 0;
+    left: 0 !important;
     height: 22px;
     width: 22px;
 }
 
-.checkmark-margin{
-    left: 20% !important;
-}
-
 .checkmarkNo {
     position: absolute;
+    /*top: 0;*/
+    /*     left: 0; */
+    /*height: 22px;*/
+    /*width: 22px;*/
+    /*background-color: #eee;*/
     background-color: #fffefe00;
     border-radius: 10px;
     top: 5px;
-    left: 0;
+    /*    left: 0; */
     height: 22px;
     width: 22px;
 }
@@ -956,44 +957,6 @@ a.leaflet-control-zoom-in, a.leaflet-control-zoom-out.leaflet-disabled {
     background-color: #ffffff00;
     border-style: solid;
     border-color: #99582A;
-    border-width: 2px;
-    font-family: 'Trebuchet MS';
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    line-height: 30px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.customCheckBoxGray input:checked ~ .checkmark {
-    background-color: #7f8c8d;
-}
-
-.customCheckBoxGray input ~ .checkmark {
-    background-color: #ffffff00;
-    border-style: solid;
-    border-color: #7f8c8d;
-    border-width: 2px;
-    font-family: 'Trebuchet MS';
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    line-height: 30px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.customCheckBoxPurple input:checked ~ .checkmark {
-    background-color: #8e44ad;
-}
-
-.customCheckBoxPurple input ~ .checkmark {
-    background-color: #ffffff00;
-    border-style: solid;
-    border-color: #8e44ad;
     border-width: 2px;
     font-family: 'Trebuchet MS';
     width: 22px;
@@ -1505,7 +1468,7 @@ h6 > label {
 }
 
 .rightPanelRow > div {
-    padding: 3px 3px;
+    padding: 10px 15px;
 }
 
 .customCheckBoxRight {
@@ -1572,22 +1535,6 @@ h6 > label {
     margin-right: 50px;
 }
 
-#violation15 > img {
-    /*margin-top: -5px;*/
-    /*margin-top: 5px;*/
-    width: 28px;
-    /*height: 22px;*/
-    margin-right: 50px;
-}
-
-#allocations1 > img {
-    /*margin-top: -5px;*/
-    /*margin-top: 5px;*/
-    width: 28px;
-    /*height: 22px;*/
-    margin-right: 50px;
-}
-
 /* Style the checkmark/indicator */
 
 .customCheckBoxRight .checkmarkNo:after {
@@ -1625,6 +1572,32 @@ h6 > label {
 }
 
 .customCheckBoxRightDoNot input:checked ~ .checkmarkNo > span {
+    color: #fcfcfc;
+}
+
+.customCheckBoxRightPickup input ~ .checkmarkNo {
+    border-style: solid;
+    border-color: #FF8838;
+    border-width: 2px;
+    font-family: 'Trebuchet MS';
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    line-height: 30px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.customCheckBoxRightPickup input ~ .checkmarkNo > span {
+    color: #FF8838;
+    font-family: 'Trebuchet MS';
+    font-size: 12px;
+    padding: 0px !important;
+}
+
+.customCheckBoxRightPickup input:checked ~ .checkmarkNo > span {
     color: #fcfcfc;
 }
 
@@ -1673,31 +1646,6 @@ h6 > label {
 
 .customCheckBoxRightDoNot input:checked ~ .checkmarkNo {
     background-color: #99582A;
-}
-
-.customCheckBoxRightPickup input ~ .checkmarkNo {
-    border-style: solid;
-    border-color: #FF8838;
-    border-width: 2px;
-    font-family: 'Trebuchet MS';
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    line-height: 30px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.customCheckBoxRightPickup input ~ .checkmarkNo > span {
-    color: #FF8838;
-    font-family: 'Trebuchet MS';
-    font-size: 12px;
-    padding: 0px !important;
-}
-
-.customCheckBoxRightPickup input:checked ~ .checkmarkNo > span {
-    color: #fcfcfc;
 }
 
 .customCheckBoxRightPickup input:checked ~ .checkmarkNo {
@@ -2300,22 +2248,6 @@ input[type=text]:focus {
 #fa-checkmarkNoViolation4 {
     font-size: 11px;
     color: #99582A;
-    position: absolute;
-    left: 3.5px;
-    top: 5px;
-}
-
-#fa-checkmarkNoViolation5 {
-    font-size: 11px;
-    color: #7f8c8d;
-    position: absolute;
-    left: 3.5px;
-    top: 5px;
-}
-
-#fa-checkmarkNoAllocations {
-    font-size: 11px;
-    color: #8e44ad;
     position: absolute;
     left: 3.5px;
     top: 5px;
@@ -2982,7 +2914,7 @@ span.en-custom-rightside-bar-title {
         margin-top: -5px !important;
     }
 
-    .customCheckBoxPurpleLi, .customCheckBoxGoldenLi, .customCheckBoxBrownLi {
+    .customCheckBoxPurple, .customCheckBoxGoldenLi, .customCheckBoxBrownLi {
         right: 73px !important;
         padding: 0px;
     }
@@ -3139,7 +3071,7 @@ span.en-custom-rightside-bar-title {
         padding-right: 0 !important;
     }
 
-    #violation11, #violation12, #violation13, #violation14, #violation15, #allocations1 {
+    #violation11, #violation12, #violation13, #violation14 {
         right: -40% !important;
         width: 65%;
     }
@@ -3154,7 +3086,7 @@ span.en-custom-rightside-bar-title {
         margin-right: 77px;
     }
 
-    #violation12 > img, #violation13 > img, #violation14 > img, #violation15 > img, #allocations1 > img {
+    #violation12 > img, #violation13 > img, #violation14 > img {
         width: 18px !important;
         height: 15.67px !important;
         margin-top: 5px;
@@ -3174,7 +3106,7 @@ span.en-custom-rightside-bar-title {
     }
 
     .rightPanelRow > div {
-        padding: 3px;
+        padding: 8px 10px 0 10px;
     }
 
     .fa-bars {
@@ -3554,144 +3486,4 @@ i#tooltip-custom8, #tooltip-custom9, #tooltip-custom7, #tooltip-custom10 {
     font: 12px/1.5;
     /*font-family: myHebrewFont;*/
     font-family: inherit;
-}
-
-/* RED COLOR */
-.customCheckBoxRightPickupRed input ~ .checkmarkNo {
-    border-style: solid;
-    border-color: #e74c3c;
-    border-width: 2px;
-    font-family: 'Trebuchet MS';
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    line-height: 30px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.customCheckBoxRightPickupRed input ~ .checkmarkNo > span {
-    color: #e74c3c;
-    font-family: 'Trebuchet MS';
-    font-size: 12px;
-    padding: 0px !important;
-}
-
-.customCheckBoxRightPickupRed input:checked ~ .checkmarkNo > span {
-    color: #fcfcfc;
-}
-
-.customCheckBoxRightPickupRed input:checked ~ .checkmarkNo {
-    background-color: #e74c3c;
-    /*background-color: rgba(94,94,94,1);*/
-}
-
-/* ORANGE COLOR */
-.customCheckBoxRightPickupOrange input ~ .checkmarkNo {
-    border-style: solid;
-    border-color: #e67e22;
-    border-width: 2px;
-    font-family: 'Trebuchet MS';
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    line-height: 30px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.customCheckBoxRightPickupOrange input ~ .checkmarkNo > span {
-    color: #e67e22;
-    font-family: 'Trebuchet MS';
-    font-size: 12px;
-    padding: 0px !important;
-}
-
-.customCheckBoxRightPickupOrange input:checked ~ .checkmarkNo > span {
-    color: #fcfcfc;
-}
-
-.customCheckBoxRightPickupOrange input:checked ~ .checkmarkNo {
-    background-color: #e67e22;
-    /*background-color: rgba(94,94,94,1);*/
-}
-
-/* GREEN COLOR*/
-.customCheckBoxRightPickupGreen input ~ .checkmarkNo {
-    border-style: solid;
-    border-color: #28b463;
-    border-width: 2px;
-    font-family: 'Trebuchet MS';
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    line-height: 30px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.customCheckBoxRightPickupGreen input ~ .checkmarkNo > span {
-    color: #28b463;
-    font-family: 'Trebuchet MS';
-    font-size: 12px;
-    padding: 0px !important;
-}
-
-.customCheckBoxRightPickupGreen input:checked ~ .checkmarkNo > span {
-    color: #fcfcfc;
-}
-
-.customCheckBoxRightPickupGreen input:checked ~ .checkmarkNo {
-    background-color: #28b463;
-    /*background-color: rgba(94,94,94,1);*/
-}
-
-/* BLUE COLOR*/
-.customCheckBoxRightPickupBlue input ~ .checkmarkNo {
-    border-style: solid;
-    border-color: #3498db;
-    border-width: 2px;
-    font-family: 'Trebuchet MS';
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    line-height: 30px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.customCheckBoxRightPickupBlue input ~ .checkmarkNo > span {
-    color: #3498db;
-    font-family: 'Trebuchet MS';
-    font-size: 12px;
-    padding: 0px !important;
-}
-
-.customCheckBoxRightPickupBlue input:checked ~ .checkmarkNo > span {
-    color: #fcfcfc;
-}
-
-.customCheckBoxRightPickupBlue input:checked ~ .checkmarkNo {
-    background-color: #3498db;
-    /*background-color: rgba(94,94,94,1);*/
-}
-
-.centerIcon {
-    position:absolute;
-    right:0;
-    padding: 10px;
-  }
-
-.vertical-center-icon {
-    top: 50% !important;
-    left: 20% !important;
-  }
-
-.vertical-center-icon-checkmark {
-    top: 50% !important;
-    left: 20% !important;
 }
