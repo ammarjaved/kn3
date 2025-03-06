@@ -130,19 +130,11 @@ select (st_dump(geom)).geom from tbl_area_a_and_b_combined where class = 'Area B
 
 	//Herding 
     $app->get(getenv("ROOT_PATH") . '/herding_outpost', function (Request $request, Response $response, $args) use($app) {
-//        $sql = "SELECT row_to_json(fc)
-//                 FROM ( SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As features
-//                 FROM (SELECT 'Feature' As type
-//                    , ST_AsGeoJSON(St_transform(lg.geom,4326))::json As geometry
-//                    , row_to_json((SELECT l FROM (SELECT id,gid, type as categoryid, cat_eng) As l
-//                      )) As properties
-//                   FROM tbl_herding_farms As lg  where type is not null  ) As f )  As fc;";
-
-        $sql = "SELECT row_to_json(fc)
+            $sql = "SELECT row_to_json(fc)
                  FROM ( SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As features
                  FROM (SELECT 'Feature' As type
                     , ST_AsGeoJSON(St_transform(lg.geom,4326))::json As geometry
-                    , row_to_json((SELECT l FROM (SELECT gid, picture_id, outpost_name_heb as titt_heb, year_established, outpost_name_arb as titt_arb, outpost_name_eng as titt_eng, categoryid, set_heb, set_arb, set_eng, desc_heb, desc_arb, desc_eng) As l
+                    , row_to_json((SELECT l FROM (SELECT gid, name_hebrew, name_english, name_arabic) As l
                       )) As properties
                    FROM tbl_herding_farms As lg  where categoryid is not null  ) As f )  As fc;";
 
@@ -154,14 +146,81 @@ select (st_dump(geom)).geom from tbl_area_a_and_b_combined where class = 'Area B
             ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');;
     })->setName('herding_outpost');
+
+    $app->get(getenv("ROOT_PATH") . '/herding_outpost_post_2022', function (Request $request, Response $response, $args) use($app) {
+        $sql = "SELECT row_to_json(fc)
+                         FROM ( SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As features
+                         FROM (SELECT 'Feature' As type
+                            , ST_AsGeoJSON(St_transform(lg.geom,4326))::json As geometry
+                            , row_to_json((SELECT l FROM (SELECT gid, id, name_hebrew, name_english, name_arabic) As l
+                              )) As properties
+                           FROM herding_outpost_post_2022 As lg  ) As f )  As fc;";
+        
+                $result = DbHelper::getDataArray($sql, []);
+        
+                $response->getBody()->write($result[0]['row_to_json'], true, true);
+                return $response->withHeader('Content-Type', 'application/json')
+                    ->withHeader('Access-Control-Allow-Origin', '*')
+                    ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+                    ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');;
+            })->setName('herding_outpost_post_2022');
 	
-	//tbl_hearding_farms_zones
+	//herding_outpost_post_2022
+
+    $app->get(getenv("ROOT_PATH") . '/tbl_palestinian_herding_communities', function (Request $request, Response $response, $args) use($app) {
+        $sql = "SELECT row_to_json(fc)
+                         FROM ( SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As features
+                         FROM (SELECT 'Feature' As type
+                            , ST_AsGeoJSON(St_transform(lg.geom,4326))::json As geometry
+                            , row_to_json((SELECT l FROM (SELECT id, name_hebrew, name_english, name_arabic) As l
+                              )) As properties
+                           FROM tbl_palestinian_herding_communities As lg  ) As f )  As fc;";
+        
+                $result = DbHelper::getDataArray($sql, []);
+        
+                $response->getBody()->write($result[0]['row_to_json'], true, true);
+                return $response->withHeader('Content-Type', 'application/json')
+                    ->withHeader('Access-Control-Allow-Origin', '*')
+                    ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+                    ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');;
+            })->setName('tbl_palestinian_herding_communities');
+	
+	//tbl_palestinian_herding_communities
+
+    $app->get(getenv("ROOT_PATH") . '/tbl_settler_cattle_enclosures', function (Request $request, Response $response, $args) use($app) {
+        //        $sql = "SELECT row_to_json(fc)
+        //                 FROM ( SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As features
+        //                 FROM (SELECT 'Feature' As type
+        //                    , ST_AsGeoJSON(St_transform(lg.geom,4326))::json As geometry
+        //                    , row_to_json((SELECT l FROM (SELECT id,gid, type as categoryid, cat_eng) As l
+        //                      )) As properties
+        //                   FROM tbl_herding_farms As lg  where type is not null  ) As f )  As fc;";
+        
+                $sql = "SELECT row_to_json(fc)
+                         FROM ( SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As features
+                         FROM (SELECT 'Feature' As type
+                            , ST_AsGeoJSON(St_transform(lg.geom,4326))::json As geometry
+                            , row_to_json((SELECT l FROM (SELECT id) As l
+                              )) As properties
+                           FROM tbl_settler_cattle_enclosures As lg  ) As f )  As fc;";
+        
+                $result = DbHelper::getDataArray($sql, []);
+        
+                $response->getBody()->write($result[0]['row_to_json'], true, true);
+                return $response->withHeader('Content-Type', 'application/json')
+                    ->withHeader('Access-Control-Allow-Origin', '*')
+                    ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+                    ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');;
+            })->setName('tbl_settler_cattle_enclosures');
+	
+	//tbl_settler_cattle_enclosures
+    
     $app->get(getenv("ROOT_PATH") . '/tbl_hearding_farms_zones', function (Request $request, Response $response, $args) use($app) {
         $sql = "SELECT row_to_json(fc)
                  FROM ( SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As features
                  FROM (SELECT 'Feature' As type
                     , ST_AsGeoJSON(St_transform(lg.geom,4326))::json As geometry
-                    , row_to_json((SELECT l FROM (SELECT id,gid) As l
+                    , row_to_json((SELECT l FROM (SELECT gid,area) As l
                       )) As properties
                    FROM tbl_hearding_farms_zoness As lg   ) As f )  As fc;";
         $result = DbHelper::getDataArray($sql, []);
@@ -172,6 +231,42 @@ select (st_dump(geom)).geom from tbl_area_a_and_b_combined where class = 'Area B
             ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');;
     })->setName('tbl_hearding_farms_zones');
+
+    //tbl_area_controlled_settlers_2022
+    $app->get(getenv("ROOT_PATH") . '/tbl_area_controlled_settlers_2022', function (Request $request, Response $response, $args) use($app) {
+        $sql = "SELECT row_to_json(fc)
+                 FROM ( SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As features
+                 FROM (SELECT 'Feature' As type
+                    , ST_AsGeoJSON(St_transform(lg.geom,4326))::json As geometry
+                    , row_to_json((SELECT l FROM (SELECT gid, shape_area as area) As l
+                      )) As properties
+                   FROM tbl_area_controlled_settlers_2022 As lg   ) As f )  As fc;";
+        $result = DbHelper::getDataArray($sql, []);
+
+        $response->getBody()->write($result[0]['row_to_json'], true, true);
+        return $response->withHeader('Content-Type', 'application/json')
+            ->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');;
+    })->setName('tbl_area_controlled_settlers_2022');
+
+    //tbl_wzo_allocations
+    $app->get(getenv("ROOT_PATH") . '/tbl_wzo_allocations', function (Request $request, Response $response, $args) use($app) {
+        $sql = "SELECT row_to_json(fc)
+                 FROM ( SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As features
+                 FROM (SELECT 'Feature' As type
+                    , ST_AsGeoJSON(St_transform(lg.geom,4326))::json As geometry
+                    , row_to_json((SELECT l FROM (SELECT gid, name_hebrew, name_english, name_arabic) As l
+                      )) As properties
+                   FROM tbl_wzo_allocations As lg   ) As f )  As fc;";
+        $result = DbHelper::getDataArray($sql, []);
+
+        $response->getBody()->write($result[0]['row_to_json'], true, true);
+        return $response->withHeader('Content-Type', 'application/json')
+            ->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');;
+    })->setName('tbl_wzo_allocations');
 	
 	//Babachy israeli
 	$app->get(getenv("ROOT_PATH") . '/babachy_israeli', function (Request $request, Response $response, $args) use($app) {
@@ -432,42 +527,6 @@ select (st_dump(geom)).geom from tbl_area_a_and_b_combined where class = 'Area B
             ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');;
     })->setName('no_construction_order_roads_ab');
-
-//Nature Reserve
-    // $app->get(getenv("ROOT_PATH") . '/seizure_ab', function (Request $request, Response $response, $args) use($app) {
-        // $sql = "SELECT row_to_json(fc)
-                 // FROM ( SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As features
-                 // FROM (SELECT 'Feature' As type
-                    // , ST_AsGeoJSON(St_transform(lg.geom,4326))::json As geometry
-                    // , row_to_json((SELECT l FROM (SELECT id) As l
-                      // )) As properties
-                   // FROM tbl_nature_reserve As lg   ) As f )  As fc;";
-        // $result = DbHelper::getDataArray($sql, []);
-
-        // $response->getBody()->write($result[0]['row_to_json'], true, true);
-        // return $response->withHeader('Content-Type', 'application/json')
-            // ->withHeader('Access-Control-Allow-Origin', '*')
-            // ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-            // ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');;
-    // })->setName('seizure_ab');
-
-//Herding Outpost
-    // $app->get(getenv("ROOT_PATH") . '/herding_outpost', function (Request $request, Response $response, $args) use($app) {
-        // $sql = "SELECT row_to_json(fc)
-                    // FROM ( SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As features
-                    // FROM (SELECT 'Feature' As type
-                    // , ST_AsGeoJSON(St_transform(geom,4326))::json As geometry
-                    // , row_to_json((SELECT l FROM (SELECT id) As l
-                      // )) As properties
-                    // FROM tbl_herding_outpost  As lg   ) As f )  As fc;";
-        // $result = DbHelper::getDataArray($sql, []);
-
-        // $response->getBody()->write($result[0]['row_to_json'], true, true);
-        // return $response->withHeader('Content-Type', 'application/json')
-            // ->withHeader('Access-Control-Allow-Origin', '*')
-            // ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-            // ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');;
-    // })->setName('herding_outpost');
 
     $app->get(getenv("ROOT_PATH") . '/green_line', function (Request $request, Response $response, $args) use($app) {
         $sql = "SELECT row_to_json(fc)

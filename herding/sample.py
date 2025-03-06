@@ -1,7 +1,7 @@
 from ngeo import ExportUtility,WorkspaceManager,Workspaces,ConnectionObjects
 
 
-myslconn = ConnectionObjects.MySQLConnection('localhost','testdb','root','Star@1990')
+myslconn = ConnectionObjects.MySQLConnection('18.224.27.72','testdb','root','Star@1990')
 
 
 shapfilews = Workspaces.ShapeFileWorkspaceFactory(r"Y:\Downloads\GIS_SHP_Data")

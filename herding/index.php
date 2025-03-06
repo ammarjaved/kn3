@@ -1262,7 +1262,7 @@
         setTimeout(function () {
             $('.typeahead').typeahead({
                 name: 'hce',
-                remote: 'http://3.17.36.216/herding/kn_api/search/eng/%QUERY',
+                remote: 'http://18.224.27.72/herding/kn_api/search/eng/%QUERY',
                 highlight: true,
                 limit: 5
             });
@@ -1383,7 +1383,7 @@
     function search() {
         var sr = $(".typeahead").val();
         $.ajax({
-            url: "http://3.17.36.216/herding/kn_api/search_result/eng/" + sr,
+            url: "http://18.224.27.72/herding/kn_api/search_result/eng/" + sr,
             type: 'GET',
             success: function (res) {
                 map.setView(new L.LatLng(res[0].lat, res[0].lng), 14);
